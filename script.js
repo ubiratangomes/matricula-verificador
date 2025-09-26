@@ -1,11 +1,18 @@
 let matriculaFinal = "";
 
+
 function calcularDV() {
-  const parteFixa = document.getElementById("parteFixa").value;
-  const digitoVariavel = document.getElementById("digitoVariavel").value;
+  // CNS do localStorage
+  let parteFixa = localStorage.getItem('cns') || document.getElementById("parteFixa").value;
+  // Livro via radio
+  let digitoVariavel = '';
+  const radios = document.getElementsByName('digitoVariavel');
+  for (let r of radios) {
+    if (r.checked) digitoVariavel = r.value;
+  }
   const matricula = document.getElementById("matricula").value;
 
-  if (!/^\d$/.test(digitoVariavel) || !/^\d{1,7}$/.test(matricula)) {
+  if (!/^\d{6}$/.test(parteFixa) || !/^\d{1}$/.test(digitoVariavel) || !/^\d{1,7}$/.test(matricula)) {
     document.getElementById("resultado").innerText = "Preencha corretamente os campos.";
     document.getElementById("qrcode").innerHTML = "";
     return;
