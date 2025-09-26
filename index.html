@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Matrícula com Dígito Verificador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Matrícula com CNM e Dígito Verificador</h2>
+
+    <label>CNS - 1º Ofício:</label>
+    <input type="text" value="094904" disabled id="parteFixa" />
+
+    <label>Informe o Livro:</label>
+    <input type="text" maxlength="1" id="digitoVariavel" />
+
+    <label>Matrícula:</label>
+    <input type="text" maxlength="7" id="matricula" />
+
+    <button onclick="calcularDV()">Calcular e Gerar QR</button>
+    <p id="resultado"></p>
+    <div id="qrcode"></div>
+    <button onclick="copiarTexto()">📋 Copiar Matrícula</button>
+  </div>
+
+  <!-- Biblioteca QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
